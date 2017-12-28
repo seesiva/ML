@@ -25,6 +25,6 @@ def load_dataset(file_name, split, training_set, test_set):
             else:
                 test_set.append(dataset[row])
 
-load_dataset('iris.data', 0.66, TRAINING_SET, TEST_SET)
+load_dataset('iris.data', 0.65, TRAINING_SET, TEST_SET)
 print 'Train: ' + repr(len(TRAINING_SET))
 print 'Test: ' + repr(len(TEST_SET))

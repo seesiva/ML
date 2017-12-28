@@ -22,3 +22,11 @@ Training observations will be part of the model.
 
 ## Dataset
 https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names
+1. sepal length in cm
+2. sepal width in cm
+3. petal length in cm
+4. petal width in cm
+5. class: 
+    -- Iris Setosa
+    -- Iris Versicolour
+    -- Iris Virginica
