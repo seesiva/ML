@@ -10,9 +10,9 @@ import operator
 ROOTDIR = "D:\\MV\\Projects\\ml\\mlprogs\\data"
 TRAINING_SET = []
 TEST_SET = []
-EU_TEST_DATA1=[2,2,2,'a']
-EU_TEST_DATA2=[4,4,4,'b']
-TRAIN_SET=[[2,2,2,'a'],[6,7,5,'b'],[14,14,14,'c']]
+EU_TEST_DATA1 = [2,2,2,'a']
+EU_TEST_DATA2 = [4,4,4,'b']
+TRAIN_SET = [[2,2,2,'a'],[6,7,5,'b'],[14,14,14,'c']]
 TEST_INSTANCE = [5, 5, 5]
 K = 1
 
@@ -69,6 +69,14 @@ def get_response(neighbors):
     sortedvotes = sorted(classvotes.iteritems(), key=operator.itemgetter(1), reverse=True)
     return sortedvotes[0][0]
 
+def get_accuracy(test_set, predictions):
+    correct = 0
+    for x in range(len(test_set)):
+        if test_set[x][-1] is predictions[x]:
+            correct += 1
+    print correct
+    return (correct/float(len(test_set))) * 100
+
 load_dataset('iris.data', 0.65, TRAINING_SET, TEST_SET)
 distance=euclidean_distance(EU_TEST_DATA1,EU_TEST_DATA2,3)
 print 'Train: ' + repr(len(TRAINING_SET))
@@ -79,5 +87,6 @@ print 'Distance:'+repr(distance)
 #print(neighbors)
 
 neighbors = [[1,1,1,'a'], [2,2,2,'a'], [3,3,3,'b']]
-response = get_response(neighbors)
-print(response)
+predictions = ['a','a','a']
+accuracy=get_accuracy(neighbors, predictions)
+print(accuracy)
