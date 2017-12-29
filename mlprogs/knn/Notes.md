@@ -36,5 +36,5 @@ https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names
 2. Similarity: Calculate the distance between two data instances. - Completed
 3. Neighbors: Locate k most similar data instances. - Completed 
 4. Response: Generate a response from a set of data instances. - Completed
-5. Accuracy: Summarize the accuracy of predictions.
-6. Main: Tie it all together.
+5. Accuracy: Summarize the accuracy of predictions. - Completed
+6. Main: Tie it all together. - Completed
