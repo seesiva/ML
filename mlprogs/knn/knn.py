@@ -54,11 +54,30 @@ def get_neighbors(training_set, test_instance, k):
         neighbours.append(distances[x][0])
     return neighbours
 
+def get_response(neighbors):
+    """
+    Get response based on the votes through the classification votes
+    """
+    classvotes = {}
+    print range(len(neighbors))
+    for x in range(len(neighbors)):
+        response = neighbors[x][-1]
+        if response in classvotes:
+            classvotes[response] += 1
+        else:
+            classvotes[response] = 1
+    sortedvotes = sorted(classvotes.iteritems(), key=operator.itemgetter(1), reverse=True)
+    return sortedvotes[0][0]
+
 load_dataset('iris.data', 0.65, TRAINING_SET, TEST_SET)
 distance=euclidean_distance(EU_TEST_DATA1,EU_TEST_DATA2,3)
 print 'Train: ' + repr(len(TRAINING_SET))
 print 'Test: ' + repr(len(TEST_SET))
 print 'Distance:'+repr(distance)
 
-neighbors = get_neighbors(TRAIN_SET, TEST_INSTANCE, K)
-print(neighbors)
+#neighbors = get_neighbors(TRAIN_SET, TEST_INSTANCE, K)
+#print(neighbors)
+
+neighbors = [[1,1,1,'a'], [2,2,2,'a'], [3,3,3,'b']]
+response = get_response(neighbors)
+print(response)
