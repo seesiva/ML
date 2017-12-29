@@ -20,7 +20,7 @@ def load_dataset(file_name, split, training_set, test_set):
     """
     Load daset
     """
-    with open(os.path.join(ROOTDIR, 'iris.data'), 'rb') as csvfile:
+    with open(os.path.join(ROOTDIR, file_name), 'rb') as csvfile:
         lines = csv.reader(csvfile)
         dataset = list(lines)
         for row in range(len(dataset)-1):
@@ -59,7 +59,7 @@ def get_response(neighbors):
     Get response based on the votes through the classification votes
     """
     classvotes = {}
-    print range(len(neighbors))
+    #print range(len(neighbors))
     for x in range(len(neighbors)):
         response = neighbors[x][-1]
         if response in classvotes:
@@ -72,21 +72,44 @@ def get_response(neighbors):
 def get_accuracy(test_set, predictions):
     correct = 0
     for x in range(len(test_set)):
-        if test_set[x][-1] is predictions[x]:
+        if test_set[x][-1] == predictions[x]:
             correct += 1
-    print correct
     return (correct/float(len(test_set))) * 100
 
-load_dataset('iris.data', 0.65, TRAINING_SET, TEST_SET)
-distance=euclidean_distance(EU_TEST_DATA1,EU_TEST_DATA2,3)
-print 'Train: ' + repr(len(TRAINING_SET))
-print 'Test: ' + repr(len(TEST_SET))
-print 'Distance:'+repr(distance)
+#load_dataset('iris.data', 0.65, TRAINING_SET, TEST_SET)
+#distance=euclidean_distance(EU_TEST_DATA1,EU_TEST_DATA2,3)
+#print 'Train: ' + repr(len(TRAINING_SET))
+#print 'Test: ' + repr(len(TEST_SET))
+#print 'Distance:'+repr(distance)
 
 #neighbors = get_neighbors(TRAIN_SET, TEST_INSTANCE, K)
 #print(neighbors)
 
-neighbors = [[1,1,1,'a'], [2,2,2,'a'], [3,3,3,'b']]
-predictions = ['a','a','a']
-accuracy=get_accuracy(neighbors, predictions)
-print(accuracy)
+#neighbors = [[1,1,1,'a'], [2,2,2,'a'], [3,3,3,'b']]
+#predictions = ['a','a','a']
+#accuracy=get_accuracy(neighbors, predictions)
+#print(accuracy)
+
+def main():
+    """ 
+    Main Function
+    """
+    # prepare data
+    training_set = []
+    test_set = []
+    split = 0.67
+    load_dataset('iris.data', split, training_set, test_set)
+    print 'Train set: ' + repr(len(training_set))
+    print 'Test set: ' + repr(len(test_set))
+    # generate predictions
+    predictions = []
+    k = 3
+    for x in range(len(test_set)):
+        neighbors = get_neighbors(training_set, test_set[x], k)
+        result = get_response(neighbors)
+    	predictions.append(result)
+        print('> predicted=' + repr(result) + ', actual=' + repr(test_set[x][-1]))
+    accuracy = get_accuracy(test_set, predictions)
+    print('Accuracy: ' + repr(accuracy) + '%')
+    
+main()
