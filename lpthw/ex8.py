@@ -10,4 +10,4 @@ def main(f, *args):
     print (result)
 
 if __name__=="__main__":
-    main(summation, [1,2,3,4]) # output 6
+    main(summation, [1,2,3,4]) # output 10
