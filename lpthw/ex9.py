@@ -18,8 +18,8 @@ if __name__=="__main__":
     args = [1,2,3]
     num_len=len(args)
     res_function=get_appropriate_function(num_len)
-    print(res_function)
-    print (res_function(*args))
+    print(res_function) # when length is 3
+    print (res_function(*args)) # Addition according to 3 params
 
     args = [1,2]
     num_len=len(args)
