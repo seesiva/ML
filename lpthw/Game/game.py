@@ -25,6 +25,8 @@ grass = pygame.image.load("D:\\MV\\Projects\\ml\\lpthw\\Game\\resources\\images\
 castle = pygame.image.load("D:\\MV\\Projects\\ml\\lpthw\\Game\\resources\\images\\castle.png")
 arrow = pygame.image.load("D:\\MV\\Projects\\ml\\lpthw\\Game\\resources\\images\\bullet.png")
 badguyimg1 = pygame.image.load("D:\\MV\\Projects\\ml\\lpthw\\Game\\resources\\images\\badguy.png")
+healthbar = pygame.image.load("D:\\MV\\Projects\\ml\\lpthw\\Game\\resources\\images\\healthbar.png")
+health = pygame.image.load("D:\\MV\\Projects\\ml\\lpthw\\Game\\resources\\images\\health.png")
 badguyimg=badguyimg1
 
 
@@ -102,6 +104,10 @@ while 1:
     textRect = survivedtext.get_rect()
     textRect.topright=[635,5]
     screen.blit(survivedtext, textRect)
+    # 6.5 - Draw health bar
+    screen.blit(healthbar, (5,5))
+    for health1 in range(healthvalue):
+        screen.blit(health, (health1+8,8))
     # 7 - update the screen
     pygame.display.flip()
     # 8 - loop through the events
