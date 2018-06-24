@@ -42,7 +42,12 @@ class MyTests(unittest.TestCase):
     def test_SumofSquareof2ofBigof3WhenYZGreaterScenario(self):
         self.assertEqual(sumofsquarebig2of3(1,3,2),13)
 
+    def test_SumofSquareof2ofBigof3WhenXZGreaterScenario(self):
+        self.assertEqual(sumofsquarebig2of3(3,2,3),18)
+
+    def test_SumofSquareof2ofBigof3WhenXZNegativeScenario(self):
+        self.assertEqual(sumofsquarebig2of3(-1,-2,3),10)
 
 if __name__=="__main__":
-    unittest.main()
+    unittest.main(exit=False) #Added exit=False to continue after completing the unit tests
     print sumofsquarebig2of3(1,2,3)
