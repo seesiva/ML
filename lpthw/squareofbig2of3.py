@@ -10,14 +10,14 @@ def sumofsquare(x,y):
     return square(x)+square(y)
 
 def sumofsquarebig2of3(x,y,z):
-    big1=big2=0
-    if (x>y):
-       big1=x
-    elif y>z:
-        big2=y
-    elif z>x:
-        big2=z
-    return sumofsquare(big1,big2)
+    result=0
+    if (x>=y) and (y>=z):
+       result=sumofsquare(x,y)
+    elif (y>=x) and (z>=x):
+         result=sumofsquare(y,z)
+    elif (z>=x) and (x>=y):
+         result=sumofsquare(x,z)
+    return result
 
 
 class MyTests(unittest.TestCase):
@@ -30,8 +30,18 @@ class MyTests(unittest.TestCase):
     def test_SumofSquareNegative(self):
         self.assertEqual(sumofsquare(-1,-1),2)
 
-    def test_SumofSquareof2ofBigof3(self):
-        self.assertEqual(sumofsquarebig2of3(1,2,3),13)
+    def test_SumofSquareof2ofBigof3WhenAllEqual(self):
+        self.assertEqual(sumofsquarebig2of3(1,1,1),2)
+
+    def test_SumofSquareof2ofBigof3WhenTwoEqualScenario(self):
+        self.assertEqual(sumofsquarebig2of3(1,5,1),26)
+
+    def test_SumofSquareof2ofBigof3WhenXYGreaterScenario(self):
+        self.assertEqual(sumofsquarebig2of3(2,5,1),29)
+
+    def test_SumofSquareof2ofBigof3WhenYZGreaterScenario(self):
+        self.assertEqual(sumofsquarebig2of3(1,3,2),13)
+
 
 if __name__=="__main__":
     unittest.main()
