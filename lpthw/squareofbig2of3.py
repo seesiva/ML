@@ -11,11 +11,11 @@ def sumofsquare(x,y):
 
 def sumofsquarebig2of3(x,y,z):
     result=0
-    if (x>=y) and (y>=z):
+    if (x>=z) and (y>=z):
        result=sumofsquare(x,y)
     elif (y>=x) and (z>=x):
          result=sumofsquare(y,z)
-    elif (z>=x) and (x>=y):
+    elif (x>=y) and (z>=y):
          result=sumofsquare(x,z)
     return result
 
