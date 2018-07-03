@@ -13,14 +13,14 @@ if __name__=="__main__":
     for i in range (0,T):
         even=""
         odd=""
-        print i
-        print string_list[i]
+        #print i
+        #print string_list[i]
         for j, char in enumerate(string_list[i]):
             print j
             if  j % 2 == 0:
                 #print char
                 even=even+char
             else:
-                print char
+                #print char
                 odd=odd+char
         print even, odd
