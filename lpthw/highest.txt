@@ -1,0 +1,15 @@
+def sortByHeight(a):
+    sortByHeight_Result=[]
+    highest=None
+    for i in range(len(a)):
+        if a[i]>highest:
+            if a[i]==-1:
+                sortByHeight_Result[i]=a[i]
+        else:
+            sortByHeight_Result[i]=a[i]
+            highest=a[i]
+
+    return sortByHeight_Result
+
+if __name__=="__main__":
+    
