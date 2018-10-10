@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message InputCheckString {
+    string value = 1;
+}
+
+message InputCheckResponse {
+    bool value = 1;
+}
+
+service PalindromeChecker {
+    rpc isPalindrome(InputCheckString) returns (InputCheckResponse);
+}
