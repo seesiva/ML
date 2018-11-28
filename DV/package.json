@@ -1,0 +1,26 @@
+{
+  "name": "datavisualization",
+  "version": "1.0.0",
+  "description": "data visualization workings with D3",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seesiva/ML.git"
+  },
+  "keywords": [
+    "d3",
+    "data",
+    "explorartor",
+    "data",
+    "analysis"
+  ],
+  "author": "Siva Karthikeyan Krishnan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seesiva/ML/issues"
+  },
+  "homepage": "https://github.com/seesiva/ML#readme"
+}
